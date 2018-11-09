@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <style>
+      .color-red {
+        color: red;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <div id="root">
+
+      <p> {{message}} </p>
+
+      <input :class="className" v-model="newName" type="text">
+      <button @click="addName" type="button" name="button">Click me</button>
+
+      <ul>
+        <li v-for="name in names"> {{name}} </li>
+      </ul>
+
+    </div>
+
+    <a href="https://itunes.apple.com/us/app/fortnite/id1261357853?mt=8" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/assets/shared/badges/en-gb/appstore-lrg.svg) no-repeat;width:135px;height:40px;background-size:contain;"></a>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js" integrity="sha384-vGq6VlJ/rGDK5hwCZhgtrb5j4nOanwgWgBSe9anrJGQHqCgkBo45u6lAxlVR0U+Q" crossorigin="anonymous"></script>
+
+
+    <!-- v-on:click="" on click listener -->
+    <!--@click="" also on click listener -->
+
+    <!-- v-for="name in names" for loop over, say a bunch of li's -->
+
+    <!-- v-model="" two way databinding (updates data on user input events) -->
+
+    <!-- v-bind:<attribute in data json model e.g., title>="my title" -->
+    <!-- you can just use :<attribute in model> tho -->
+
+    <!-- With binds you can also have conditionals -->
+    <!-- :myClass { 'color-red' : <some variable bound in data e.g., message> } -->
+
+    <!-- v-for="name in names" v-if="task.completed" v-text="task.description"-->
+
+
+
+    <script type="text/javascript">
+      new Vue({
+
+        el: '#root',
+
+        data: {
+          message: 'Hello World',
+          names: ['Ed', 'Alice'],
+          newName: '',
+          className: 'color-red'
+        },
+
+        methods: {
+          addName: function() {
+            console.log("Adding name");
+            this.names.push(this.newName)
+          }
+        }
+
+      })
+    </script>
+
+  </body>
+</html>
